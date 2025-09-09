@@ -24,50 +24,53 @@ import {
 
 export default function Home() {
   return (
-    <div className="w-full dark:bg-black">
-      <ModeToggle />
+    <div className="w-full bg-white  dark:bg-black">
+      <div className="px-4 py-2 flex w-full">
+        <ModeToggle />
+      </div>
       <Banner />
 
-      <div className="mt-70 px-4">
+      <div className="my-10 px-4">
         <ProductList />
       </div>
       <AboutUs />
       <div className="bg-orange-500 flex flex-col items-center justify-center">
         <h1 className="text-white pt-12 text-3xl">چرا خونگی؟</h1>
-        <Accordion type="single" collapsible>
-          <AccordionItem value="item-1">
-            <AccordionTrigger className="bg-white/70 p-3 rounded-2xl">
-              چرا باید سوسیس و کالباس خونگی تهیه کنیم؟
-            </AccordionTrigger>
-            <AccordionContent>
-              سوسیس و کالباس‌های خونگی بدون افزودنی‌های مضر، نگهدارنده‌های
-              شیمیایی و مواد رنگی مصنوعی تهیه می‌شوند. این محصولات سالم‌،
-              طبیعی‌هستند و کنترل کامل روی مواد اولیه وجود دارد.
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-        <Accordion type="single" collapsible>
-          <AccordionItem value="item-1">
-            <AccordionTrigger className="bg-white/70 p-3 rounded-2xl">
-              سوسیس و کالباس خونگی را تا چه مدت میتوان نگهداری کرد؟
-            </AccordionTrigger>
-            <AccordionContent>
-              سه روز در یخچال و یک ماه در فریزر قابل نگهداری هستند
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-        <Accordion type="single" collapsible>
-          <AccordionItem value="item-1">
-            <AccordionTrigger className="bg-white/70 p-3 rounded-2xl">
-              {" "}
-              آیا سوسیس و کالباس خانگی برای کودکان مناسب است؟
-            </AccordionTrigger>
-            <AccordionContent>
-              بله، به دلیل عدم استفاده از مواد نگهدارنده و افزودنی‌های شیمیایی و
-              داشتن مواد پروتئینی، سوسیس و کالباس خونگی گزینه‌ای سالم و مطمئن
-              برای کودکان است
-            </AccordionContent>
-          </AccordionItem>
+        <Accordion
+          type="single"
+          collapsible
+          className="w-96 flex flex-col gap-4 my-10 text-right"
+        >
+          {" "}
+          {[
+            {
+              trigger: "چرا باید سوسیس و کالباس خونگی تهیه کنیم؟",
+              content:
+                "سوسیس و کالباس‌های خونگی بدون افزودنی‌های مضر، نگهدارنده‌هایشیمیایی و مواد رنگی مصنوعی تهیه می‌شوند. این محصولات سالم‌، طبیعی‌هستند و کنترل کامل روی مواد اولیه وجود دارد.",
+            },
+            {
+              trigger: "سوسیس و کالباس خونگی را تا چه مدت میتوان نگهداری کرد؟",
+              content: "سه روز در یخچال و یک ماه در فریزر قابل نگهداری هستند.",
+            },
+            {
+              trigger: "آیا سوسیس و کالباس خانگی برای کودکان مناسب است؟",
+              content:
+                "بله، به دلیل عدم استفاده از مواد نگهدارنده و افزودنی‌های شیمیایی و داشتن مواد پروتئینی، سوسیس و کالباس خونگی گزینه‌ای سالم و مطمئن برای کودکان است.",
+            },
+          ].map((item, i) => (
+            <AccordionItem
+              key={item.trigger}
+              value={`item-${i}`}
+              className="border-none"
+            >
+              <AccordionTrigger className="bg-white/70 text-gray-600 p-3 rounded-2xl text-right flex-row-reverse hover:no-underline">
+                {item.trigger}
+              </AccordionTrigger>
+              <AccordionContent className="mt-2" asChild>
+                {item.content}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
         </Accordion>
       </div>
       <Footer />

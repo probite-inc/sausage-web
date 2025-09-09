@@ -25,11 +25,11 @@ export default function ProductItem({
         width={320}
         height={172}
         alt={title}
-        className="w-20 h-20 object-cover rounded-md mt-2 sm:mt-0 sm:ml-4"
+        className="w-20 h-20 object-cover rounded-md mt-2 sm:mt-0 "
       />
       {/* سمت چپ: متن */}
       <div className="text-right flex flex-col flex-1">
-        <h3 className="text-md font-semibold mb-1">{title}</h3>
+        <h3 className="text-md text-gray-700 font-semibold mb-1">{title}</h3>
         <p className="text-sm text-gray-600 ">{description}</p>
 
         <div className="flex justify-between gap-6 text-nowrap">

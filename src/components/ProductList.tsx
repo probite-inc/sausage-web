@@ -163,12 +163,14 @@ const products = [
 export default function ProductList() {
   return (
     <div className="max-w-6xl mx-auto bg-white rounded-xl">
-      <h2 className="text-xl font-bold text-center mb-6">محصولات</h2>
+      <h2 className="text-2xl font-bold text-center mb-6 text-gray-600 pt-4">
+        محصولات
+      </h2>
 
-      <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:justify-between ">
+      <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:justify-evenly ">
         {products.map((item, index) => (
           <div
-            className=" w-full sm:w-[48%] lg:w-[20%] flex-shrink-0"
+            className=" w-full sm:flex-1/3 lg:flex-1/4 max-w-80 flex-shrink-0"
             key={index}
           >
             <ProductItem
