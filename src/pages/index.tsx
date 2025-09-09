@@ -1,0 +1,215 @@
+// import Image from "next/image";
+// import { Geist, Geist_Mono } from "next/font/google";
+// import { Button } from "@/components/ui/button";
+"use client";
+
+import * as React from "react";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+
+import { Button } from "@/components/ui/button";
+
+import Banner from "@/components/Banner";
+import ProductList from "@/components/ProductList";
+
+import AboutUs from "@/components/AboutUs";
+import Footer from "@/components/Footer";
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+export default function Home() {
+  return (
+    <div className="w-full dark:bg-black">
+      <ModeToggle />
+      <Banner />
+
+      <div className="mt-70 px-4">
+        <ProductList />
+      </div>
+      <AboutUs />
+      <div className="bg-orange-500 flex flex-col items-center justify-center">
+        <h1 className="text-white pt-12 text-3xl">چرا خونگی؟</h1>
+        <Accordion type="single" collapsible>
+          <AccordionItem value="item-1">
+            <AccordionTrigger className="bg-white/70 p-3 rounded-2xl">
+              چرا باید سوسیس و کالباس خونگی تهیه کنیم؟
+            </AccordionTrigger>
+            <AccordionContent>
+              سوسیس و کالباس‌های خونگی بدون افزودنی‌های مضر، نگهدارنده‌های
+              شیمیایی و مواد رنگی مصنوعی تهیه می‌شوند. این محصولات سالم‌،
+              طبیعی‌هستند و کنترل کامل روی مواد اولیه وجود دارد.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+        <Accordion type="single" collapsible>
+          <AccordionItem value="item-1">
+            <AccordionTrigger className="bg-white/70 p-3 rounded-2xl">
+              سوسیس و کالباس خونگی را تا چه مدت میتوان نگهداری کرد؟
+            </AccordionTrigger>
+            <AccordionContent>
+              سه روز در یخچال و یک ماه در فریزر قابل نگهداری هستند
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+        <Accordion type="single" collapsible>
+          <AccordionItem value="item-1">
+            <AccordionTrigger className="bg-white/70 p-3 rounded-2xl">
+              {" "}
+              آیا سوسیس و کالباس خانگی برای کودکان مناسب است؟
+            </AccordionTrigger>
+            <AccordionContent>
+              بله، به دلیل عدم استفاده از مواد نگهدارنده و افزودنی‌های شیمیایی و
+              داشتن مواد پروتئینی، سوسیس و کالباس خونگی گزینه‌ای سالم و مطمئن
+              برای کودکان است
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+      <Footer />
+    </div>
+  );
+}
+
+export function ModeToggle() {
+  const { setTheme } = useTheme();
+  const [themeState, setThemeState] = React.useState("light");
+  return (
+    <Button
+      variant="outline"
+      size="icon"
+      onClick={() => {
+        setTheme(themeState === "light" ? "dark" : "light");
+        setThemeState(themeState === "light" ? "dark" : "light");
+      }}
+    >
+      {themeState === "light" ? (
+        <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+      ) : (
+        <Moon className="h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+      )}
+
+      <span className="sr-only">Toggle theme</span>
+    </Button>
+  );
+}
+
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
+
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
+
+// export default function Home() {
+//   return (
+//     <div
+//       className={`${geistSans.className} ${geistMono.className} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
+//     >
+//       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+//         <Image
+//           className="dark:invert"
+//           src="/next.svg"
+//           alt="Next.js logo"
+//           width={180}
+//           height={38}
+//           priority
+//         />
+//         <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+//           <li className="mb-2 tracking-[-.01em]">
+//             Get started by editing{" "}
+//             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
+//               src/pages/index.tsx
+//             </code>
+//             .
+//           </li>
+//           <li className="tracking-[-.01em]">
+//             save{" "}
+//             <div className="flex flex-wrap items-center gap-2 md:flex-row">
+//               <Button>Button</Button>
+//             </div>
+//           </li>
+//         </ol>
+//         <div className="flex gap-4 items-center flex-col sm:flex-row">
+//           <a
+//             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
+//             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
+//             target="_blank"
+//             rel="noopener noreferrer"
+//           >
+//             <Image
+//               className="dark:invert"
+//               src="/vercel.svg"
+//               alt="Vercel logomark"
+//               width={20}
+//               height={20}
+//             />
+//             Deploy now
+//           </a>
+//           <a
+//             className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
+//             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
+//             target="_blank"
+//             rel="noopener noreferrer"
+//           >
+//             Read our docs
+//           </a>
+//         </div>
+//       </main>
+//       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+//         <a
+//           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+//           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           <Image
+//             aria-hidden
+//             src="/file.svg"
+//             alt="File icon"
+//             width={16}
+//             height={16}
+//           />
+//           Learn
+//         </a>
+//         <a
+//           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+//           href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           <Image
+//             aria-hidden
+//             src="/window.svg"
+//             alt="Window icon"
+//             width={16}
+//             height={16}
+//           />
+//           Examples
+//         </a>
+//         <a
+//           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+//           href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           <Image
+//             aria-hidden
+//             src="/globe.svg"
+//             alt="Globe icon"
+//             width={16}
+//             height={16}
+//           />
+//           Go to nextjs.org →
+//         </a>
+//       </footer>
+//     </div>
+//   );
+// }
