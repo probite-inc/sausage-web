@@ -170,7 +170,7 @@ export default function ProductList() {
         محصولات
       </h2>
 
-      <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:justify-evenly ">
+      <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 items-center sm:justify-evenly ">
         {products.map((item, index) => (
           <div
             className=" w-full sm:flex-1/3 lg:flex-1/4 max-w-80 flex-shrink-0"

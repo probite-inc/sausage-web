@@ -28,7 +28,7 @@ export default function Home() {
         <Accordion
           type="single"
           collapsible
-          className="w-96 flex flex-col gap-4 my-10 text-right"
+          className="w-56 md:w-96 flex flex-col gap-4 my-10 text-right"
         >
           {" "}
           {[

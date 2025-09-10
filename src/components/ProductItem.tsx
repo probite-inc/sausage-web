@@ -32,7 +32,7 @@ export default function ProductItem({
         <h3 className="text-md text-gray-700 font-semibold mb-1">{title}</h3>
         <p className="text-sm text-gray-600 ">{description}</p>
 
-        <div className="flex justify-between gap-6 text-nowrap">
+        <div className="flex justify-between gap-2 md:gap-6 text-nowrap">
           <p className="text-black ">( {weight} گرم )</p>
           <p className="font-semibold text-black ">{price} تومان</p>
         </div>
