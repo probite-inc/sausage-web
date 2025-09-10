@@ -8,7 +8,7 @@ function Banner() {
       className={cn(
         "flex flex-col items-center justify-center gap-y-6 w-full min-h-[calc(50vh-100px)] sm:min-h-[calc(100vh-100px)]  bg-cover bg-center bg-no-repeat",
         {
-          "bg-[url(/suasage-web/image/banner-background.svg)] dark:bg-[url(/sausage-wb/image/banner-background-dark.svg)]":
+          "bg-[url(/sausage-web/image/banner-background.svg)] dark:bg-[url(/sausage-wb/image/banner-background-dark.svg)]":
             config.basePath && config.isProd,
           "bg-[url(/image/banner-background.svg)] dark:bg-[url(/image/banner-background-dark.svg)]":
             !config.isProd,

@@ -7,7 +7,7 @@ function AboutUs() {
       className={cn(
         " relative flex flex-col items-center justify-start pt-12 w-full min-h-[calc(50vh-100px)] sm:min-h-[calc(100vh-100px)] bg-white bg-cover bg-center",
         {
-          "bg-[url(/suasage-web/image/aboutus-background.svg)] dark:bg-[url(/suasage-web/image/aboutus-background.svg)] ":
+          "bg-[url(/sausage-web/image/aboutus-background.svg)] dark:bg-[url(/sausage-web/image/aboutus-background.svg)] ":
             config.basePath && config.isProd,
           "bg-[url(/image/aboutus-background.svg)] dark:bg-[url(/image/aboutus-background.svg)] ":
             !config.isProd,
