@@ -1,13 +1,6 @@
-// import { Geist, Geist_Mono } from "next/font/google";
-// import { Button } from "@/components/ui/button";
 "use client";
-import Image from "next/image";
 
 import * as React from "react";
-import { Hamburger, Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
-
-import { Button } from "@/components/ui/button";
 
 import Banner from "@/components/Banner";
 import ProductList from "@/components/ProductList";
@@ -23,46 +16,9 @@ import {
 } from "@/components/ui/accordion";
 
 export default function Home() {
-  const { theme } = useTheme();
-  console.log(theme);
-  const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <div className="w-full bg-white  dark:bg-black">
-      <div className="px-4 py-2 flex justify-between w-full">
-        <Button
-          variant={"ghost"}
-          className="size-14 p-0"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <Image
-            src={
-              isOpen
-                ? theme === "light"
-                  ? "/image/close.svg"
-                  : "/image/close.svg"
-                : theme === "light"
-                ? "/image/hambar.svg"
-                : "/image/hambar.svg"
-            }
-            width={48}
-            height={48}
-            alt={"logo"}
-            className="size-12 object-cover rounded-md mt-2 sm:mt-0 "
-          />
-        </Button>
-        <div className="flex items-center gap-2">
-          <ModeToggle />
-          <Image
-            src={theme === "light" ? "/image/logo.svg" : "/image/logo-dark.svg"}
-            width={48}
-            height={48}
-            alt={"logo"}
-            className="size-12 object-cover rounded-md mt-2 sm:mt-0 "
-          />
-        </div>
-      </div>
+    <div className="w-full">
       <Banner />
-
       <div className="my-10 px-4">
         <ProductList />
       </div>
@@ -108,30 +64,6 @@ export default function Home() {
       </div>
       <Footer />
     </div>
-  );
-}
-
-export function ModeToggle() {
-  const { setTheme } = useTheme();
-  const [themeState, setThemeState] = React.useState("light");
-  return (
-    <Button
-      variant="ghost"
-      size="icon"
-      className="bg-amber-100/30 hover:bg-amber-100/60 active:bg-amber-100/80 dark:bg-cyan-900/30 dark:active:bg-cyan-900/80 dark:hover:bg-cyan-900/60"
-      onClick={() => {
-        setTheme(themeState === "light" ? "dark" : "light");
-        setThemeState(themeState === "light" ? "dark" : "light");
-      }}
-    >
-      {themeState === "light" ? (
-        <Sun className="h-[1.2rem] w-[1.2rem] scale-100 text-amber-300 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-      ) : (
-        <Moon className="h-[1.2rem] w-[1.2rem] scale-0 text-cyan-700 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-      )}
-
-      <span className="sr-only">Toggle theme</span>
-    </Button>
   );
 }
 

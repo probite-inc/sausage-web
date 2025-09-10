@@ -163,7 +163,10 @@ const products = [
 export default function ProductList() {
   return (
     <div className="max-w-6xl mx-auto bg-white rounded-xl">
-      <h2 className="text-2xl font-bold text-center mb-6 text-gray-600 pt-4">
+      <h2
+        id="products"
+        className="text-2xl font-bold text-center mb-6 text-gray-600 pt-4"
+      >
         محصولات
       </h2>
 
