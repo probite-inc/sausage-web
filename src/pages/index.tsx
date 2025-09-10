@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/accordion";
 
 export default function Home() {
+  // test action
   return (
     <div className="w-full">
       <Banner />
