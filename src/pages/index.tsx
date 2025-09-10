@@ -28,14 +28,14 @@ export default function Home() {
         <Accordion
           type="single"
           collapsible
-          className="w-56 md:w-96 flex flex-col gap-4 my-10 text-right"
+          className="w-56 md:w-96  my-10 text-right"
         >
           {" "}
           {[
             {
               trigger: "چرا باید سوسیس و کالباس خونگی تهیه کنیم؟",
               content:
-                "سوسیس و کالباس‌های خونگی بدون افزودنی‌های مضر، نگهدارنده‌هایشیمیایی و مواد رنگی مصنوعی تهیه می‌شوند. این محصولات سالم‌، طبیعی‌هستند و کنترل کامل روی مواد اولیه وجود دارد.",
+                "سوسیس و کالباس‌های خونگی بدون افزودنی‌های مضر، نگهدارنده‌های شیمیایی و مواد رنگی مصنوعی تهیه می‌شوند. این محصولات سالم‌، طبیعی‌هستند و کنترل کامل روی مواد اولیه وجود دارد.",
             },
             {
               trigger: "سوسیس و کالباس خونگی را تا چه مدت میتوان نگهداری کرد؟",
@@ -50,13 +50,16 @@ export default function Home() {
             <AccordionItem
               key={item.trigger}
               value={`item-${i}`}
-              className="border-none"
+              className="border-none mt-4 transition-all duration-300 ease-in-out "
             >
-              <AccordionTrigger className="bg-white/70 text-gray-600 p-3 rounded-2xl text-right flex-row-reverse hover:no-underline">
+              <AccordionTrigger className="bg-white/70 text-gray-600 p-3 rounded-2xl text-right flex-row-reverse hover:no-underline  transition-all duration-300 ease-in-out mb-2  ">
                 {item.trigger}
               </AccordionTrigger>
-              <AccordionContent className="mt-2" asChild>
-                {item.content}
+              <AccordionContent
+                className="transition-all duration-300 ease-in-out "
+                asChild
+              >
+                <p>{item.content}</p>
               </AccordionContent>
             </AccordionItem>
           ))}
