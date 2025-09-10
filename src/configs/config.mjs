@@ -1,4 +1,4 @@
 export const config = {
   isProd: true,
-  basePath: "/portfolio.github.io",
+  basePath: "/suasage-web",
 };
