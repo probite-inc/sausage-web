@@ -73,21 +73,21 @@ export default function Footer() {
                 <a
                   onClick={handleOnMenuClick}
                   href="#products"
-                  className="hover:no-underline hover:bg-gray-400/50 p-2 rounded-lg"
+                  className="hover:no-underline hover:bg-gray-400/50 transition-colors duration-300 ease-in-out p-2 rounded-lg"
                 >
                   محصولات
                 </a>
                 <a
                   href="#aboutus"
                   onClick={handleOnMenuClick}
-                  className="hover:no-underline hover:bg-gray-400/50 p-2 rounded-lg"
+                  className="hover:no-underline hover:bg-gray-400/50 transition-colors duration-300 ease-in-out p-2 rounded-lg"
                 >
                   درباره ما
                 </a>
                 <a
                   onClick={handleOnMenuClick}
                   href="#contact"
-                  className="hover:no-underline hover:bg-gray-400/50 p-2 rounded-lg"
+                  className="hover:no-underline hover:bg-gray-400/50 transition-colors duration-300 ease-in-out p-2 rounded-lg"
                 >
                   تماس با ما
                 </a>
