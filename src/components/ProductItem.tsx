@@ -1,5 +1,6 @@
 // components/ProductItem.tsx
 
+import { assetPathResolver } from "@/utils/utils";
 import Image from "next/image";
 
 type ProductProps = {
@@ -21,7 +22,7 @@ export default function ProductItem({
     <div className="flex flex-row-reverse sm:flex-row-reverse items-center justify-between p-4 gap-6 bg-white">
       {/* سمت راست: عکس */}
       <Image
-        src={image}
+        src={assetPathResolver(image)}
         width={320}
         height={172}
         alt={title}

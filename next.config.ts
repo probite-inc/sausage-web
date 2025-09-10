@@ -1,14 +1,11 @@
 import type { NextConfig } from "next";
-export const config = {
-  isProd: true,
-  basePath: "/suasage-web",
-};
+import { config } from "./src/configs/config.mjs";
 
 const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: true,
   output: "export",
-  basePath: "/suasage-web",
+  basePath: config.isProd ? config.basePath : "",
   images: { unoptimized: true },
 };
 

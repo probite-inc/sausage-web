@@ -12,6 +12,7 @@ import { useTheme } from "next-themes";
 import React from "react";
 import { cn } from "@/lib/utils";
 import { useScrollVisibility } from "@/hooks/useScrollVisibility";
+import { assetPathResolver } from "@/utils/utils";
 
 export default function Footer() {
   const { theme } = useTheme();
@@ -44,7 +45,7 @@ export default function Footer() {
         <Drawer open={isOpen} onOpenChange={setIsOpen}>
           <DrawerTrigger className="size-14 dark:bg-gray-500 flex items-center justify-center bg-gray-100/20 rounded-lg p-1">
             <Image
-              src={
+              src={assetPathResolver(
                 isOpen
                   ? theme === "light"
                     ? "/image/close.svg"
@@ -52,7 +53,7 @@ export default function Footer() {
                   : theme === "light"
                   ? "/image/hambar.svg"
                   : "/image/hambar.svg"
-              }
+              )}
               width={48}
               height={48}
               alt={"logo"}
@@ -99,7 +100,9 @@ export default function Footer() {
         <div className="flex items-center gap-2">
           <ModeToggle />
           <Image
-            src={theme !== "dark" ? "/image/logo.svg" : "/image/logo-dark.svg"}
+            src={assetPathResolver(
+              theme !== "dark" ? "/image/logo.svg" : "/image/logo-dark.svg"
+            )}
             width={48}
             height={48}
             alt={"logo"}

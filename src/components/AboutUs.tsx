@@ -1,6 +1,19 @@
+import { config } from "@/configs/config.mjs";
+import { cn } from "@/lib/utils";
+
 function AboutUs() {
   return (
-    <div className=" relative flex flex-col items-center justify-start pt-12 w-full min-h-[calc(50vh-100px)] sm:min-h-[calc(100vh-100px)] bg-white bg-[url(/image/aboutus-background.svg)] dark:bg-[url(/image/aboutus-background.svg)] bg-cover bg-center">
+    <div
+      className={cn(
+        " relative flex flex-col items-center justify-start pt-12 w-full min-h-[calc(50vh-100px)] sm:min-h-[calc(100vh-100px)] bg-white bg-cover bg-center",
+        {
+          "bg-[url(/suasage-web/image/aboutus-background.svg)] dark:bg-[url(/suasage-web/image/aboutus-background.svg)] ":
+            config.basePath && config.isProd,
+          "bg-[url(/image/aboutus-background.svg)] dark:bg-[url(/image/aboutus-background.svg)] ":
+            !config.isProd,
+        }
+      )}
+    >
       <div className="absolute inset-0 bg-black/60 z-0 flex items-center justify-center w-full h-full mx-auto">
         <div className="max-w-3xl mx-4 text-center  dark:bg-black/70 p-4 rounded-2xl backdrop-blur-sm">
           <h2
