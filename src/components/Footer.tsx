@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="text-sm mt-1">location</div>
       </div>
 
-      {/* insta */}
+      {/* instag */}
       <div
         className={cn(" w-6 h-6", {
           "bg-[url(/image/icon8-instagram-1.svg)]":
