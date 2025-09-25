@@ -1,4 +1,4 @@
 export const config = {
-  isProd: true,
+  isProd: false,
   basePath: "/sausage-web",
 };
