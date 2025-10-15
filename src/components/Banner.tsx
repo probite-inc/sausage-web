@@ -1,6 +1,7 @@
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { config } from "@/configs/config.mjs";
+import Link from "next/link";
 
 function Banner() {
   return (
@@ -18,12 +19,14 @@ function Banner() {
       <h1 className="text-lg md:text-2xl lg:text-6xl bg-white/80 dark:bg-black/80 p-3 rounded-2xl text-gray-500 dark:text-gray-200 md:p-6 lg:p-12 backdrop-blur-xs">
         اصالت خانگی، کیفیت سالم
       </h1>
-      <Button
-        size={"lg"}
-        className="bg-orange-400 w-[70px] h-[36px] md:w-32 md:h-12 md:text-2xl text-sm dark:text-gray-200"
-      >
-        سفارش
-      </Button>
+      <Link href={"/order"}>
+        <Button
+          size={"lg"}
+          className="bg-orange-400 hover:bg-orange-300  w-[70px] h-[36px] md:w-32 md:h-12 md:text-2xl text-sm dark:text-gray-200"
+        >
+          سفارش
+        </Button>
+      </Link>
     </div>
   );
 }

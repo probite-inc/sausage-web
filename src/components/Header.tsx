@@ -13,6 +13,8 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { useScrollVisibility } from "@/hooks/useScrollVisibility";
 import { assetPathResolver } from "@/utils/utils";
+import Link from "next/link";
+import { Button } from "./ui/button";
 
 export default function Footer() {
   const { theme } = useTheme();
@@ -71,43 +73,56 @@ export default function Footer() {
                 </DrawerDescription>
               </DrawerHeader>
               <div className="flex flex-col gap-4 my-4 px-4 text-center">
-                <a
+                <Link
                   onClick={handleOnMenuClick}
-                  href="#products"
+                  href="/#products"
                   className="hover:no-underline hover:bg-gray-400/50 transition-colors duration-300 ease-in-out p-2 rounded-lg"
                 >
                   محصولات
-                </a>
-                <a
-                  href="#aboutus"
+                </Link>
+                <Link
+                  href="/#aboutus"
                   onClick={handleOnMenuClick}
                   className="hover:no-underline hover:bg-gray-400/50 transition-colors duration-300 ease-in-out p-2 rounded-lg"
                 >
                   درباره ما
-                </a>
-                <a
+                </Link>
+                <Link
                   onClick={handleOnMenuClick}
-                  href="#contact"
+                  href="/#contact"
                   className="hover:no-underline hover:bg-gray-400/50 transition-colors duration-300 ease-in-out p-2 rounded-lg"
                 >
                   تماس با ما
-                </a>
+                </Link>
               </div>{" "}
             </>
           </DrawerContent>
         </Drawer>
 
         <div className="flex items-center gap-2">
+          {window.location.pathname !== "/order" && (
+            <Link className="mr-4" href={"/order"}>
+              <Button
+                size={"lg"}
+                className="bg-orange-400 hover:bg-orange-300  w-16  h-9 text-xl dark:text-gray-200"
+              >
+                سفارش
+              </Button>
+            </Link>
+          )}
+
           <ModeToggle />
-          <Image
-            src={assetPathResolver(
-              theme !== "dark" ? "/image/logo.svg" : "/image/logo-dark.svg"
-            )}
-            width={48}
-            height={48}
-            alt={"logo"}
-            className="size-12 object-cover rounded-md mt-2 sm:mt-0 "
-          />
+          <Link href={"/"}>
+            <Image
+              src={assetPathResolver(
+                theme !== "dark" ? "/image/logo.svg" : "/image/logo-dark.svg"
+              )}
+              width={48}
+              height={48}
+              alt={"logo"}
+              className="size-12 object-cover rounded-md mt-2 sm:mt-0 "
+            />
+          </Link>
         </div>
       </div>{" "}
     </>
